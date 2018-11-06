@@ -1,6 +1,5 @@
 package com.brautomatic.model;
 
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -13,7 +12,6 @@ import java.util.Collection;
 @Entity
 @Getter
 @Setter
-@EqualsAndHashCode
 @ToString
 public class User extends BaseClass implements UserDetails {
 
