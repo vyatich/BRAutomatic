@@ -1,6 +1,7 @@
 package com.brautomatic.service;
 
 import com.brautomatic.model.Disk;
+import com.brautomatic.model.User;
 import com.brautomatic.repository.DiskRepository;
 import com.brautomatic.service.interfaces.DiskService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +21,8 @@ public class DiskServiceImpl implements DiskService {
     }
 
     @Override
-    public List<Disk> getAllUserDiskByUser(Long userId) {
-        return diskRepository.findByUserOwn(userId);
+    public List<Disk> getAllUserDiskByUser(User user) {
+        return diskRepository.findByUser(user);
     }
 
     @Override

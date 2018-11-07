@@ -15,6 +15,4 @@ public class AuthController {
         return "auth";
     }
 
-
-
 }

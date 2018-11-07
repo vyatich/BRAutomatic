@@ -1,17 +1,18 @@
 package com.brautomatic.model;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 @Entity
 @Getter
 @Setter
 @ToString
+@NoArgsConstructor
+@AllArgsConstructor
 public class Disk extends BaseClass {
 
     private String name;
-    private User userOwn;
+    @ManyToOne(fetch = FetchType.EAGER)
+    private User user;
 }

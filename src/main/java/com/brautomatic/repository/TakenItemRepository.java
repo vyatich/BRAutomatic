@@ -12,5 +12,5 @@ import java.util.List;
 public interface TakenItemRepository extends CrudRepository<TakenItem, Long> {
 
     @Query("from TakenItem t where t.user=:userId")
-    List<TakenItem> findByUser(@Param("userId") Long userId);
+    List<TakenItem> findByUser(@Param("user") Long userId);
 }
