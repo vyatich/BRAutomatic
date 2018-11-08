@@ -39,6 +39,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
             .userDetailsService(userService)
-            .passwordEncoder(NoOpPasswordEncoder.getInstance());
+            .passwordEncoder(NoOpPasswordEncoder.getInstance()); //todo change encoder
     }
 }
