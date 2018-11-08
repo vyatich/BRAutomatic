@@ -7,6 +7,8 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Map;
@@ -22,7 +24,7 @@ public class TakenItemController {
     public String getAllMyTakenDisks(
             @AuthenticationPrincipal User user,
             Map<String, Object> model) {
-        model.put("taken", takenItemService.getAllTakenItem());
+        model.put("taken", takenItemService.getMyTakenItem(user));
         return "takendisk";
     }
 
@@ -30,7 +32,13 @@ public class TakenItemController {
     public String getAllMyGivenDisks(
             @AuthenticationPrincipal User user,
             Model model) {
-        model.addAttribute("disks", takenItemService.getMyTakenItem(user));
-        return "kbkbjkj";
+        model.addAttribute("givens", takenItemService.getMyGivenItem(user));
+        return "givendisk";
+    }
+
+    @PostMapping("/give/{id}")
+    public String giveBackDisk(@PathVariable("id") final long id) {
+        takenItemService.deleteTakenItem(id);
+        return "redirect:/disk/taken/given";
     }
 }

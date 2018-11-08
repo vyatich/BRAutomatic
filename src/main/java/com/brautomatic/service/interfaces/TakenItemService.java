@@ -9,5 +9,7 @@ public interface TakenItemService {
 
     Iterable<TakenItem> getAllTakenItem();
     List<TakenItem> getMyTakenItem(User user);
+    List<TakenItem> getMyGivenItem(User user);
     void addTakenItem(TakenItem takenItem);
+    void deleteTakenItem(Long id);
 }

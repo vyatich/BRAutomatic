@@ -48,6 +48,7 @@ public class DiskController {
         TakenItem takenItem = new TakenItem();
         takenItem.setDisk(diskService.getDiskById(id).get());
         takenItem.setUser(user);
+        takenItemService.addTakenItem(takenItem);
         return "redirect:/disk/all";
     }
 

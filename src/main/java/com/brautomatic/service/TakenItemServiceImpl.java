@@ -26,7 +26,17 @@ public class TakenItemServiceImpl implements TakenItemService {
     }
 
     @Override
+    public List<TakenItem> getMyGivenItem(User user) {
+        return takenItemRepository.findGivenDiskList(user);
+    }
+
+    @Override
     public void addTakenItem(TakenItem takenItem) {
         takenItemRepository.save(takenItem);
+    }
+
+    @Override
+    public void deleteTakenItem(Long id) {
+        takenItemRepository.deleteById(id);
     }
 }
