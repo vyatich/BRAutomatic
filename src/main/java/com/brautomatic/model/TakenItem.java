@@ -2,8 +2,7 @@ package com.brautomatic.model;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 @Entity
 @Getter
@@ -13,9 +12,11 @@ import javax.persistence.OneToOne;
 @AllArgsConstructor
 public class TakenItem extends BaseClass {
 
-    @OneToOne
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")
     private User user;
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "disk_id")
     private Disk disk;
 
 }

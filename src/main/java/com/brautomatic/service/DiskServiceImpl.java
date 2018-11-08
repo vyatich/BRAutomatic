@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DiskServiceImpl implements DiskService {
@@ -16,8 +17,13 @@ public class DiskServiceImpl implements DiskService {
     private DiskRepository diskRepository;
 
     @Override
-    public List<Disk> getAllFreeDisk() {
-        return null;
+    public Optional<Disk> getDiskById(Long id) {
+        return diskRepository.findById(id);
+    }
+
+    @Override
+    public List<Disk> getAllFreeDiskList() {
+        return diskRepository.getAlFreeDisks();
     }
 
     @Override

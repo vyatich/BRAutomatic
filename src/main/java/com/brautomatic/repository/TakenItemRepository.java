@@ -1,16 +1,13 @@
 package com.brautomatic.repository;
 
 import com.brautomatic.model.TakenItem;
-import org.springframework.data.jpa.repository.Query;
+import com.brautomatic.model.User;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
 public interface TakenItemRepository extends CrudRepository<TakenItem, Long> {
-
-    @Query("from TakenItem t where t.user=:userId")
-    List<TakenItem> findByUser(@Param("user") Long userId);
+    List<TakenItem> findByUser(User user);
 }
