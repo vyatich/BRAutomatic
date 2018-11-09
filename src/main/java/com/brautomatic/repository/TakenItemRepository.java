@@ -12,6 +12,7 @@ import java.util.List;
 @Repository
 public interface TakenItemRepository extends CrudRepository<TakenItem, Long> {
 
+    List<TakenItem> findAll();
     List<TakenItem> findByUser(User user);
     @Query("select t from TakenItem t where t.disk IN (select d from Disk d where d.user=:user)")
     List<TakenItem> findGivenDiskList(@Param("user") User user);

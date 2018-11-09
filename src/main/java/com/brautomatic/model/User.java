@@ -1,10 +1,12 @@
 package com.brautomatic.model;
 
 import lombok.*;
+import org.hibernate.validator.constraints.Length;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.Collection;
 import java.util.Set;
 
@@ -16,7 +18,11 @@ import java.util.Set;
 @AllArgsConstructor
 public class User extends BaseClass implements UserDetails {
 
+    //@NotBlank(message = "Password can't be empty!")
+    //@Length(min = 6, message = "Password can't shorter than 6 symbols!")
     private String password;
+    //@NotBlank(message = "Username can't be empty!")
+    //@Length(min = 6, message = "Username can't shorter than 6 symbols!")
     private String userName;
 
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)

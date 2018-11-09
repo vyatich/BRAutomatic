@@ -3,6 +3,11 @@
 <@c.common>
             <form method="post" action="/registration/">
                 <h2>Registration form</h2>
+                <#if message??>
+                        <div class="alert alert-danger" role="alert">
+                            ${message}
+                        </div>
+                </#if>
                 <div class="form-group row">
                     <label for="username" class="col-sm-2 col-form-label">Username</label>
                     <div class="col-sm-6">

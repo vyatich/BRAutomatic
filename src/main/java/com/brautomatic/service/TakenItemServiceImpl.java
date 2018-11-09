@@ -16,7 +16,7 @@ public class TakenItemServiceImpl implements TakenItemService {
     private TakenItemRepository takenItemRepository;
 
     @Override
-    public Iterable<TakenItem> getAllTakenItem() {
+    public List<TakenItem> getAllTakenItem() {
         return takenItemRepository.findAll();
     }
 
